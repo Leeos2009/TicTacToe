@@ -3,30 +3,37 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TicTacToeMain {
-    public static void main(String args[]) {
+public class TicTacToeMain extends JFrame {
+        static JButton[][] XOboard = new JButton[3][3];
+    //public static void main(String args[]) {
         //int rows, columns;
         JButton button;
-        int count = 1;
-        JButton[][] XOboard = new JButton[3][3];
+        Boolean Winner = false;
+        private int XorO = 0;
+        static String XorOtext;
         //btnLayout = new JButton[8][8];
-        JFrame frame = new JFrame("Checkers");
-        frame.setSize(750, 750);
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        frame.setLayout(new GridLayout(3, 3, 2, 2));
 
+    public TicTacToeMain(){
+            //super();
+            /*JFrame frame = new JFrame("TicTacToe");
+            frame.setSize(500, 500);
+            frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+            frame.setLayout(new GridLayout(3, 3, 2, 2));*/
+            JPanel TTTpanel = new JPanel();
+            TTTpanel.setLayout(new GridLayout(3,3,2,2));
+            add(TTTpanel);
 
-       for (int row = 0; row < 3; row++) {
-            for (int column = 0; column < 3; column++) {
-                XOboard[row][column] = new JButton();
-                frame.add(XOboard[row][column]);
-                XOboard[row][column].addActionListener(new BtnListener());
+            for (int row = 0; row < 3; row++) {
+                for (int column = 0; column < 3; column++) {
+                    XOboard[row][column] = new JButton(XorOtext);
+                    TTTpanel.add(XOboard[row][column]);
+                    XOboard[row][column].addActionListener(new BtnListener());
+                }
             }
-        }
 
 
-        //MineMenu MM = new MineMenu();
-        //frame.setJMenuBar(MineMenu.menuBar);
+            //MineMenu MM = new MineMenu();
+            //frame.setJMenuBar(MineMenu.menuBar);
 
         /*for(i = 0; i < 25; i++)
         {
@@ -60,26 +67,34 @@ public class TicTacToeMain {
         Eight.addActionListener(new BtnListener());
         JButton Nine = new JButton("Nine");
         frame.add(Nine);
-        Nine.addActionListener(new BtnListener());
-        JButton Ten = new JButton("Ten");
-        frame.add(Ten);
-        Ten.addActionListener(new BtnListener());*/
-
-
-        frame.setVisible(true);
-    }
-
-    public static class BtnListener implements ActionListener {
-        @Override
-        public void actionPerformed(ActionEvent e) {
-            String btnClick = e.getActionCommand();
-            JButton button = (JButton) e.getSource();
-            //if (btnClick.equals("Btn: ")) {
-            System.out.println("Button was pressed");
-
-
+        Nine.addActionListener(new BtnListener());*/
         }
 
+
+    public class BtnListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            //String btnClick = e.getActionCommand();
+            //if (btnClick.equals("Btn: ")) {
+            System.out.println("Button was pressed");
+            JButton BtnClick = (JButton)e.getSource();
+            BtnClick.setText(XorOtext);
+            BtnClick.setBackground(Color.blue);
+            XorO++;
+            if(XorO % 2 == 0)
+            {
+                XorOtext = "X";
+            }
+            else
+            {
+                XorOtext = "O";
+            }
+        }
+    }
+   public void winningCriteria(int row, int column) {
+       /*if (XOboard[0][0] &&) {
+
+           Winner = true;};*/
+    }
     }
 
-}
