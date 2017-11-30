@@ -1,11 +1,3 @@
-import javafx.scene.media.MediaPlayer;
-import jdk.nashorn.internal.scripts.JO;
-
-import javafx.scene.media.Media;
-import javafx.scene.media.MediaPlayer;
-
-import javax.sound.sampled.AudioInputStream;
-import javax.sound.sampled.AudioSystem;
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
@@ -231,6 +223,7 @@ public class TicTacToeMain extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton ExitClick = (JButton) e.getSource();
+            System.out.println("Exit was Clicked");
             System.exit(0);
         }
     }
@@ -239,6 +232,7 @@ public class TicTacToeMain extends JFrame {
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton RestartClick = (JButton) e.getSource();
+            System.out.println("Restart was Clicked");
             repaint();
         }
     }
@@ -248,6 +242,7 @@ public class TicTacToeMain extends JFrame {
         {
             JButton FillerClick = (JButton) e.getSource();
             JOptionPane.showMessageDialog(null,"Emptiness", "Magic Button", JOptionPane.INFORMATION_MESSAGE);
+            System.out.println("Magic Button was Clicked");
         }
     }
 }
