@@ -1,7 +1,12 @@
+import javafx.scene.media.MediaPlayer;
 import jdk.nashorn.internal.scripts.JO;
 
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+
+import javax.sound.sampled.AudioInputStream;
+import javax.sound.sampled.AudioSystem;
 import javax.swing.*;
-import javax.swing.border.Border;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -14,7 +19,6 @@ public class TicTacToeMain extends JFrame {
     Boolean Winner = false;
     private int XorO = 0;
     String XorOtag;
-    JPanel TTTpanel;
     boolean Draw = false;
     //String XorOtext = "";
 
@@ -64,6 +68,7 @@ public class TicTacToeMain extends JFrame {
         JButton Nine = new JButton("Nine");
         TTTpanel.add(Nine);
         Nine.addActionListener(new BtnListener());*/
+
         JButton Exit = new JButton("Exit");
         TTTpanel.add(Exit);
         Exit.setBackground(Color.green);
@@ -72,7 +77,10 @@ public class TicTacToeMain extends JFrame {
         TTTpanel.add(Restart);
         Restart.setBackground(Color.cyan);
         Restart.addActionListener(new RestartListener());
-        TTTpanel.setVisible(true);
+        JButton Filler = new JButton("");
+        TTTpanel.add(Filler);
+        Filler.setBackground(Color.ORANGE);
+        Filler.addActionListener(new FillerListener());
 
         /*if(XOboard[0].getText().equals("Red")){
             if(XOboard[1].getText().equals("Red")){
@@ -157,10 +165,13 @@ public class TicTacToeMain extends JFrame {
 
             }
             XorO++;
-            if (XorO == 9) {
+            if (XorO == 9 && WinCheck() == false) {
                 int GameDraw = JOptionPane.showConfirmDialog(null, "The game ended in a draw, do you wish to Exit?","TicTacToe", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
                 if (GameDraw == JOptionPane.OK_OPTION) {
                     System.exit(0);
+                    if (GameDraw == JOptionPane.PLAIN_MESSAGE) {
+
+                    }
                 }
             }
             if(WinCheck()==true)
@@ -229,6 +240,14 @@ public class TicTacToeMain extends JFrame {
         public void actionPerformed(ActionEvent e) {
             JButton RestartClick = (JButton) e.getSource();
             repaint();
+        }
+    }
+    public class FillerListener implements ActionListener {
+        @Override
+            public void actionPerformed(ActionEvent e)
+        {
+            JButton FillerClick = (JButton) e.getSource();
+            JOptionPane.showMessageDialog(null,"Emptiness", "Magic Button", JOptionPane.INFORMATION_MESSAGE);
         }
     }
 }

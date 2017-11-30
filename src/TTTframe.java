@@ -14,18 +14,37 @@ public class TTTframe {
         //frame.add(TTTmain);
         //JButton Start = new JButton("Start");
         //TTTmain.add(Start);
-        frame.setLocation(500,250);
+        frame.setLocation(600,250);
         JMenuBar mb = new JMenuBar();
-        JMenu menu = new JMenu("Menu");
+        JMenu menu = new JMenu("File");
+        JMenu menu2 = new JMenu("Information");
         mb.add(menu);
+        mb.add(menu2);
+        JMenuItem New = new JMenuItem("New Game");
         JMenuItem Exit = new JMenuItem("Exit");
+        JMenuItem Info = new JMenuItem("Info");
+        New.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new TTTframe();
+            }
+        });
         Exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
                 System.exit(0);
             }
         });
+        Info.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showMessageDialog(null, "Game: TicTacToe\nNumber of Players: 2\nPlayer 1: Blue\nPlayer 2: Red", "Information", JOptionPane.INFORMATION_MESSAGE);
+            }
+        });
+
+        menu.add(New);
         menu.add(Exit);
+        menu2.add(Info);
         frame.setJMenuBar(mb);
         frame.setVisible(true);
 
