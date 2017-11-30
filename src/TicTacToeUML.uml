@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Diagram>
+  <ID>JAVA</ID>
+  <OriginalElement />
+  <nodes>
+    <node x="-392.0" y="-184.0">TTTinterface</node>
+    <node x="-466.0" y="-82.0">TicTacToeMain</node>
+    <node x="-377.0" y="220.0">TTTframe</node>
+  </nodes>
+  <notes />
+  <edges>
+    <edge source="TicTacToeMain" target="TTTinterface">
+      <point x="0.0" y="-126.0" />
+      <point x="0.0" y="26.0" />
+    </edge>
+    <edge source="TTTframe" target="TicTacToeMain">
+      <point x="0.0" y="-26.0" />
+      <point x="0.0" y="126.0" />
+    </edge>
+  </edges>
+  <settings layout="Hierarchic Group" zoom="1.0" x="-108.5" y="120.5" />
+  <SelectedNodes>
+    <node>TTTinterface</node>
+    <node>TicTacToeMain</node>
+    <node>TTTframe</node>
+  </SelectedNodes>
+  <Categories>
+    <Category>Fields</Category>
+    <Category>Constructors</Category>
+    <Category>Methods</Category>
+  </Categories>
+  <SCOPE>All</SCOPE>
+  <VISIBILITY>private</VISIBILITY>
+</Diagram>
+
