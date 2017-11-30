@@ -72,6 +72,7 @@ public class TicTacToeMain extends JFrame {
         TTTpanel.add(Restart);
         Restart.setBackground(Color.cyan);
         Restart.addActionListener(new RestartListener());
+        TTTpanel.setVisible(true);
 
         /*if(XOboard[0].getText().equals("Red")){
             if(XOboard[1].getText().equals("Red")){
@@ -157,11 +158,14 @@ public class TicTacToeMain extends JFrame {
             }
             XorO++;
             if (XorO == 9) {
-                System.out.println("The Match Ended in a Draw");
+                int GameDraw = JOptionPane.showConfirmDialog(null, "The game ended in a draw, do you wish to Exit?","TicTacToe", JOptionPane.OK_CANCEL_OPTION, JOptionPane.PLAIN_MESSAGE);
+                if (GameDraw == JOptionPane.OK_OPTION) {
+                    System.exit(0);
+                }
             }
             if(WinCheck()==true)
             {
-                int GameOver = JOptionPane.showConfirmDialog(null, "Game Over");
+                int GameOver = JOptionPane.showConfirmDialog(null, "The Winner was " + XorOtag + " , Do you wish to Exit?", "TicTacToe", JOptionPane.YES_NO_OPTION);
                 if (GameOver == JOptionPane.YES_OPTION) {
                     System.exit(0);
                 }
@@ -173,8 +177,8 @@ public class TicTacToeMain extends JFrame {
         }
     }
 //
-    public boolean checkLine(int a, int b) {
-        if (XOboard[a].getText().equals(XOboard[b].getText()) && !XOboard[a].getText().equals("")) {
+    public boolean checkLine(int XOleft, int XOright) {
+        if (XOboard[XOleft].getText().equals(XOboard[XOright].getText()) && !XOboard[XOleft].getText().equals("")) {
             return true;
         } else
             return false;
