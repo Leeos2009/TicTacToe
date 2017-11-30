@@ -1,9 +1,15 @@
+/**This is an instantiable Student Class
+ * @author Lee O'Sullivan
+ * Version 1.0
+ */
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class TicTacToeMain extends JFrame implements TTTinterface {
+    //Attributes
     static JButton[] XOboard = new JButton[9];
     //public static void main(String args[]) {
     //int rows, columns;
@@ -16,6 +22,7 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
 
 
     public TicTacToeMain() {
+        //Creating the TicTacToe Board
         int count = 0;
         if(count == 0);
         {
@@ -31,6 +38,8 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
         add(TTTpanel);
 
         //for (int row = 0; row < 3; row++) {
+
+        //Creating the buttons inside the array and adding them to the frame
         for (int btn = 0; btn < 9; btn++) {
             XOboard[btn] = new JButton("");
             TTTpanel.add(XOboard[btn]);
@@ -67,6 +76,8 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
         TTTpanel.add(Nine);
         Nine.addActionListener(new BtnListener());*/
 
+
+        //Exit, Restart, and Filler Button Creation
         JButton Exit = new JButton("Exit");
         TTTpanel.add(Exit);
         Exit.setBackground(Color.green);
@@ -138,6 +149,12 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
 
         }*/
     }
+
+    /**
+     * Method for Restarting the Game
+     * @param restart
+     * @return restart
+     */
     @Override
     public boolean restart(boolean restart) {
         this.dispose();
@@ -153,7 +170,14 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
         return popUp;
     }*/
 
+    /**
+     * This method is to Check if either Player has won and display a Winning/Draw message, and for the button
+     */
     public class BtnListener implements ActionListener {
+        /**
+         * This method records which player's turn was taken and changes the button's color to show which player took their move
+         * @param e
+         */
         @Override
         public void actionPerformed(ActionEvent e) {
             //String btnClick = e.getActionCommand();
@@ -198,13 +222,24 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
             }
         }
     }
-//
+
+    /**
+     * This method creates the algorithm to determine a winning combinations
+     * @param XOleft
+     * @param XOright
+     * @return
+     */
     public boolean checkLine(int XOleft, int XOright) {
         if (XOboard[XOleft].getText().equals(XOboard[XOright].getText()) && !XOboard[XOleft].getText().equals("")) {
             return true;
         } else
             return false;
     }
+
+    /**
+     * This method outlines all possible winning combinations possible and returns WinCheck if one of the combinations is found
+     * @return is used if a winning combination is made
+     */
     public boolean WinCheck() {
         if (checkLine(0, 1) && checkLine(1, 2)) {
             return true;
@@ -238,6 +273,10 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
             return false;
         }
     }
+
+    /**
+     * This method allows the user to exit the game once they click the Exit button
+     */
     public class ExitListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -247,6 +286,9 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
         }
     }
 
+    /**
+     * This method allows the user to restart the game once they click the Restart button
+     */
     public class RestartListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -256,6 +298,10 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
             restart(true);
         }
     }
+
+    /**
+     * This method is used to allow a button to be clicked and a message to appear. The purpose of the button is to fill the space on the JFrame.
+     */
     public class FillerListener implements ActionListener {
         @Override
             public void actionPerformed(ActionEvent e)
@@ -265,7 +311,7 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
             System.out.println("Magic Button was Clicked");
         }
     }
-}
+}//end class
   /* public void winningCriteria(int[][] XOboard) {
         /*if(XOboard[0][0] == Integer.parseInt("Red"))
       return true;
