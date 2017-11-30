@@ -21,6 +21,7 @@ public class TTTframe {
         mb.add(menu);
         mb.add(menu2);
         JMenuItem New = new JMenuItem("New Game");
+        JMenuItem Restart = new JMenuItem("Restart");
         JMenuItem Exit = new JMenuItem("Exit");
         JMenuItem Info = new JMenuItem("Info");
         New.addActionListener(new ActionListener() {
@@ -29,12 +30,23 @@ public class TTTframe {
                 new TTTframe();
             }
         });
+        Restart.addActionListener(new ActionListener(){
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                JOptionPane.showConfirmDialog(null, "Are you sure you wish to restart? ", "Restart Message", JOptionPane.YES_NO_OPTION);
+            }
+    });
         Exit.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                int ExitGame = JOptionPane.showConfirmDialog(null, "Are you sure you wish to Exit? ", "Exit Message", JOptionPane.YES_NO_OPTION);
+                if(ExitGame == JOptionPane.YES_OPTION) {
                 System.exit(0);
             }
-        });
+            else {
+
+                }
+        }});
         Info.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
@@ -44,12 +56,13 @@ public class TTTframe {
 
         menu.add(New);
         menu.add(Exit);
+        menu.add(Restart);
         menu2.add(Info);
         frame.setJMenuBar(mb);
         frame.setVisible(true);
 
     }
 
-    }
+}
 
 

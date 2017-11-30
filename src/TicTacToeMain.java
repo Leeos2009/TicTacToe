@@ -3,7 +3,7 @@ import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
-public class TicTacToeMain extends JFrame {
+public class TicTacToeMain extends JFrame implements TTTinterface {
     static JButton[] XOboard = new JButton[9];
     //public static void main(String args[]) {
     //int rows, columns;
@@ -16,6 +16,12 @@ public class TicTacToeMain extends JFrame {
 
 
     public TicTacToeMain() {
+        int count = 0;
+        if(count == 0);
+        {
+        ImageIcon icon1 = new ImageIcon("TTTimg.png");
+        JOptionPane.showMessageDialog(null, "Welcome to TicTacToe", "Welcome", JOptionPane.INFORMATION_MESSAGE, icon1);
+        count++;}
             /*JFrame frame = new JFrame("TicTacToe");
             frame.setSize(500, 500);
             frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -69,7 +75,7 @@ public class TicTacToeMain extends JFrame {
         TTTpanel.add(Restart);
         Restart.setBackground(Color.cyan);
         Restart.addActionListener(new RestartListener());
-        JButton Filler = new JButton("");
+        JButton Filler = new JButton("Empty");
         TTTpanel.add(Filler);
         Filler.setBackground(Color.ORANGE);
         Filler.addActionListener(new FillerListener());
@@ -131,8 +137,21 @@ public class TicTacToeMain extends JFrame {
             System.out.println("Broken");
 
         }*/
-
     }
+    @Override
+    public boolean restart(boolean restart) {
+        this.dispose();
+        new TicTacToeMain();
+        restart = true;
+        return restart;
+    }
+
+    /*public boolean Popup(boolean popUp) {
+        ImageIcon icon = new ImageIcon("TTTimg.png");
+        JOptionPane.showMessageDialog(null, "Welcome to TicTacToe", "", JOptionPane.INFORMATION_MESSAGE, icon);
+        popUp = true;
+        return popUp;
+    }*/
 
     public class BtnListener implements ActionListener {
         @Override
@@ -234,6 +253,7 @@ public class TicTacToeMain extends JFrame {
             JButton RestartClick = (JButton) e.getSource();
             System.out.println("Restart was Clicked");
             repaint();
+            restart(true);
         }
     }
     public class FillerListener implements ActionListener {
