@@ -15,6 +15,18 @@ public class TTTframe {
         //JButton Start = new JButton("Start");
         //TTTmain.add(Start);
         frame.setLocation(500,250);
+        JMenuBar mb = new JMenuBar();
+        JMenu menu = new JMenu("Menu");
+        mb.add(menu);
+        JMenuItem Exit = new JMenuItem("Exit");
+        Exit.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                System.exit(0);
+            }
+        });
+        menu.add(Exit);
+        frame.setJMenuBar(mb);
         frame.setVisible(true);
 
     }
