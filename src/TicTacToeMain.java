@@ -229,6 +229,13 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
      * @param XOright
      * @return
      */
+
+    /*- Code Tutorials
+- Author: Unknown
+- https://kodingtutorials.weebly.com/Tic-tac-toe-gui.html
+- Date 29/11/2017
+*****************************************************/
+
     public boolean checkLine(int XOleft, int XOright) {
         if (XOboard[XOleft].getText().equals(XOboard[XOright].getText()) && !XOboard[XOleft].getText().equals("")) {
             return true;
@@ -243,7 +250,10 @@ public class TicTacToeMain extends JFrame implements TTTinterface {
     public boolean WinCheck() {
         if (checkLine(0, 1) && checkLine(1, 2)) {
             return true;
-        } else if (checkLine(3, 4) && checkLine(4, 5)) {
+        }
+        //Below here: Code was determined by myself using the code commented out above to create all possible outcomes.
+        //***********************************************************************
+        else if (checkLine(3, 4) && checkLine(4, 5)) {
             return true;
         }else if(checkLine(6,7) && checkLine(7,8))
         {
